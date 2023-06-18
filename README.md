@@ -1,4 +1,5 @@
 # Sudoku React App
+![Capture](https://github.com/bilouStrike/sudoku-app/assets/12693924/857f922a-e5c8-4244-aad1-12dc23e1f8a4)
 
 This is a Sudoku web application built using React. It allows users to play the classic Sudoku puzzle online.
 
