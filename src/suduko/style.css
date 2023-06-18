@@ -1,0 +1,98 @@
+
+body {
+    background-color: #b39652;
+}
+.grid-container {
+    margin: 0 auto;
+    width: 540px;
+    height: 900px;
+}
+
+.grid {
+    background-color: #fff;
+    justify-content: center;
+    color: #444;
+}
+
+.row {
+    display: flex;
+    height: 60px;
+}
+
+.row-0,
+.row-3,
+.row-6 {
+    border-top: 2px solid #000;
+}
+
+.row-1,
+.row-2,
+.row-4,
+.row-5,
+.row-7,
+.row-8 {
+    border-top: 1px solid #ccc;
+}
+
+.row-8 {
+    border-bottom: 2px solid #000;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 11.11%;
+    font-size: 32px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.col-0,
+.col-3,
+.col-6 {
+    border-left: 2px solid #000;
+}
+
+.col-1,
+.col-2,
+.col-4,
+.col-5,
+.col-7,
+.col-8 {
+    border-left: 1px solid #ccc;
+}
+
+.col-8 {
+    border-right: 2px solid #000;
+}
+
+.cell-highlight {
+    background-color: #ccc;
+}
+
+.cell-selected {
+    background-color: bisque;
+    border: 2px solid #1111ff;
+}
+
+.cell-error {
+    background-color: coral;
+}
+
+.number-control {
+    display: flex;
+    gap: 5px;
+    margin-top: 50px;
+}
+
+.number-control .col {
+    background-color: rgb(235, 246, 243);
+    border-radius: 5px;
+    box-shadow: #444;
+    cursor: pointer;
+}
+
+.edited-font {
+    font-family: Math;
+}
