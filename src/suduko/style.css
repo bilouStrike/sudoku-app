@@ -8,6 +8,10 @@ body {
     height: 900px;
 }
 
+h3, h2 {
+   color: #fff;
+}
+
 .grid {
     background-color: #fff;
     justify-content: center;

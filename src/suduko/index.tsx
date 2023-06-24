@@ -48,55 +48,61 @@ const Suduko = () => {
     }, [defaultGrid, grid]);
 
     return (
-        <div className="grid-container">
-            <div className="grid">
-                {grid.map((row, rowIndex) =>
-                    <div key={rowIndex} className={`row row-${rowIndex}`}>
-                        {row.map((cell, ColIndex) => 
-                            <div key={ColIndex}
-                                className={`col col-${ColIndex}
-                                    ${checkArayEqual([selectCell[0], selectCell[1]], [rowIndex, ColIndex]) ? ' cell-selected' : ''}
-                                    ${selectCell[2] === cell && selectCell[2] ? ' cell-highlight' : ''}
-                                    ${cell && 
-                                        selectCell[0] === rowIndex && 
-                                        grid[selectCell[0]][ColIndex] === selectCell[2] &&
-                                        selectCell[1] !== ColIndex
-                                        ? 'cell-error' : ''}
-                                    ${cell && 
-                                        selectCell[1] === ColIndex &&
-                                        grid[rowIndex][selectCell[1]] === selectCell[2] &&
-                                        selectCell[0] !== rowIndex
-                                        ? 'cell-error' : ''}
-                                    ${cell && 
-                                        getCellBox(rowIndex, ColIndex) === getCellBox(selectCell[0], selectCell[1]) &&
-                                        grid[rowIndex][ColIndex] === grid[selectCell[0]][selectCell[1]] &&
-                                        !checkArayEqual([rowIndex, ColIndex], [selectCell[0], selectCell[1]])
-                                        ? 'cell-error' : ''
+        <>
+            <h2>Sudoku app</h2>
+            <h3>
+                Sudoku is a logic-based game that involves filling a 9x9 grid with numbers from 1 to 9,<br/> with the objective of ensuring that each row, each column,<br/> and each of the nine 3x3 subgrids (called "boxes" or "regions") contains all the numbers from 1 to 9 without repetition.
+            </h3>
+            <div className="grid-container">
+                <div className="grid">
+                    {grid.map((row, rowIndex) =>
+                        <div key={rowIndex} className={`row row-${rowIndex}`}>
+                            {row.map((cell, ColIndex) => 
+                                <div key={ColIndex}
+                                    className={`col col-${ColIndex}
+                                        ${checkArayEqual([selectCell[0], selectCell[1]], [rowIndex, ColIndex]) ? ' cell-selected' : ''}
+                                        ${selectCell[2] === cell && selectCell[2] ? ' cell-highlight' : ''}
+                                        ${cell && 
+                                            selectCell[0] === rowIndex && 
+                                            grid[selectCell[0]][ColIndex] === selectCell[2] &&
+                                            selectCell[1] !== ColIndex
+                                            ? 'cell-error' : ''}
+                                        ${cell && 
+                                            selectCell[1] === ColIndex &&
+                                            grid[rowIndex][selectCell[1]] === selectCell[2] &&
+                                            selectCell[0] !== rowIndex
+                                            ? 'cell-error' : ''}
+                                        ${cell && 
+                                            getCellBox(rowIndex, ColIndex) === getCellBox(selectCell[0], selectCell[1]) &&
+                                            grid[rowIndex][ColIndex] === grid[selectCell[0]][selectCell[1]] &&
+                                            !checkArayEqual([rowIndex, ColIndex], [selectCell[0], selectCell[1]])
+                                            ? 'cell-error' : ''
+                                        }
+                                        ${cellFont.includes(`${rowIndex}-${ColIndex}`) ? 'edited-font' : ''}`
                                     }
-                                    ${cellFont.includes(`${rowIndex}-${ColIndex}`) ? 'edited-font' : ''}`
-                                }
-                                onClick={() => handleCellClick(rowIndex, ColIndex, cell)}
-                                onKeyDown={(e) => console.log(e.key)}
-                            >
-                                {cell !== 0 ? cell : ''}
-                            </div> 
-                        )}
-                    </div>
-                )}
+                                    onClick={() => handleCellClick(rowIndex, ColIndex, cell)}
+                                    onKeyDown={(e) => console.log(e.key)}
+                                >
+                                    {cell !== 0 ? cell : ''}
+                                </div> 
+                            )}
+                        </div>
+                    )}
+                </div>
+                <div className="row number-control">
+                    {numbersControl.map((number) => 
+                        <div 
+                            key={number}
+                            className="col"
+                            onClick={() => handleNumberContol(number)}
+                            tabIndex={number}
+                            > 
+                            {number} 
+                        </div>)
+                    }
+                </div>
             </div>
-            <div className="row number-control">
-                {numbersControl.map((number) => 
-                    <div 
-                        key={number}
-                        className="col"
-                        onClick={() => handleNumberContol(number)}
-                        tabIndex={number}
-                        > 
-                        {number} 
-                    </div>)
-                }
-            </div>
-        </div>
+        </>
     )
 }
 export default Suduko;
